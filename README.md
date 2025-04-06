@@ -8,6 +8,7 @@ My log of converting an RPI into a automation controller
 ### Put the Pi in a DIN-mounable case like: https://www.thingiverse.com/thing:2492974
 
 ## SW changes 
-### Add `dtoverlay=gpio-led,gpio=27,label=heart,trigger=heartbeat` to `/boot/firmware/config.txt` to create `/sys//class/leds/heart/` user contrlled device
-### Load `ledtrig-pattern` module to easily control LED patterns
-### Add script `/etc/pam.d/sshd` triggered by `open_session` & `close_session` to count active users and if # of users > 0 change `heatbeart` trigger to `pattern` trigger with pattern config of `0 50 1 59` 
+- Add `dtoverlay=gpio-led,gpio=27,label=heart,trigger=heartbeat` to `/boot/firmware/config.txt` to create `/sys/class/leds/heart/` user contrlled device
+- Load `ledtrig-pattern` module to easily control LED patterns
+- Add execution of the script to `/etc/pam.d/common-session` to be triggered by `open_session` & `close_session` and count active users 
+  - If # of users > 0 change `heatbeart` trigger to `pattern` trigger with pattern config of `0 50 1 59` and reverse should there be no action sessions left
