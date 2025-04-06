@@ -10,4 +10,4 @@ My log of converting an RPI into a automation controller
 ## SW changes 
 ### Add `dtoverlay=gpio-led,gpio=27,label=heart,trigger=heartbeat` to `/boot/firmware/config.txt` to create `/sys//class/leds/heart/` user contrlled device
 ### Load `ledtrig-pattern` module to easily control LED patterns
-### Add script `/etc/pam.d/sshd` triggered by `open_session` & `close_session` to count active users and if # of users > 0 change `heatbeart` trigger to `pattern` trigger with pattern config of `0 200 1 200` 
+### Add script `/etc/pam.d/sshd` triggered by `open_session` & `close_session` to count active users and if # of users > 0 change `heatbeart` trigger to `pattern` trigger with pattern config of `0 50 1 59` 
