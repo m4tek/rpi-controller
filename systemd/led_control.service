@@ -1,0 +1,7 @@
+[Unit]
+Description=Heartbeat LED periodical control service
+After=getty.target
+
+[Service]
+ExecStart=/usr/local/sbin/session-led-trigger.sh
+Type=oneshot
